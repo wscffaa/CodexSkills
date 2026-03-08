@@ -7,10 +7,12 @@
 ```
 MySkills/
 ├── ClaudeSkills/          # Claude AI 技能集合
+│   ├── antigravity-proxy/
 │   ├── docker-nvml-monitor/
 │   ├── docx-template-reformatter/
 │   ├── midscene/
-│   └── omo-skills/
+│   ├── omo-skills/
+│   └── skill-creator/
 └── CodexSkills/           # Codex 技能集合
     ├── do/
     ├── remotion-best-practices/
@@ -19,6 +21,17 @@ MySkills/
 ```
 
 ## Claude Skills
+
+### antigravity-proxy
+Antigravity 代理自动配置工具。
+
+**功能:**
+- 自动安装和配置 graftcp + mihomo 代理
+- TCP 劫持 Antigravity language server
+- 自动检测版本更新（cron 每 5 分钟）
+- 无需 sudo 权限，完全自动化
+
+**使用场景:** Mac 本地 Antigravity 远程连接 Docker 容器开发，解决 AI 聊天连接失败
 
 ### docker-nvml-monitor
 Docker 容器 GPU 监控和自动重启工具。
@@ -59,6 +72,17 @@ AI 驱动的浏览器自动化测试工具。
 - 集成 codeagent-wrapper 多后端支持
 
 **使用场景:** 复杂开发任务、多步骤工作流、代理编排
+
+### skill-creator
+Anthropic 官方 Skill 创建工具。
+
+**功能:**
+- 创建和优化 Claude Code skills
+- 提供评估、打包、验证脚本
+- 包含分析、比较、评分代理
+- 支持技能基准测试和报告生成
+
+**使用场景:** 创建新 skill、优化现有 skill、skill 开发和测试
 
 ## Codex Skills
 
