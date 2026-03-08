@@ -1,0 +1,10 @@
+{
+  "name": "antigravity-proxy",
+  "version": "1.0.0",
+  "description": "Configure Antigravity to use mihomo proxy via graftcp for AI chat connectivity",
+  "trigger": {
+    "command": "/antigravity-proxy"
+  },
+  "author": "Claude",
+  "tags": ["proxy", "antigravity", "mihomo", "graftcp"]
+}
