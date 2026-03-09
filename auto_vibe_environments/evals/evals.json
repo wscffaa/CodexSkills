@@ -1,0 +1,20 @@
+{
+  "skill_name": "auto_vibe_environments",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "部署我的开发环境，包括 Agent Reach、GitHub CLI 和自动更新",
+      "expected_output": "Installs Agent Reach, GitHub CLI, sets up npm auto-updates with default schedule, shows status summary"
+    },
+    {
+      "id": 2,
+      "prompt": "安装 Agent Reach 并配置 GitHub 认证",
+      "expected_output": "Installs Agent Reach, installs and authenticates GitHub CLI, shows verification status"
+    },
+    {
+      "id": 3,
+      "prompt": "帮我设置定时更新 claude-code 和 codex，每天早上8点和晚上8点运行",
+      "expected_output": "Creates update script with both packages, sets up cron for 8:00 and 20:00, shows configuration"
+    }
+  ]
+}

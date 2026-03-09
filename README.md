@@ -13,14 +13,37 @@ MySkills/
 │   ├── midscene/
 │   ├── omo-skills/
 │   └── skill-creator/
-└── CodexSkills/           # Codex 技能集合
-    ├── do/
-    ├── remotion-best-practices/
-    ├── skill-creator/
-    └── skill-installer/
+├── CodexSkills/           # Codex 技能集合
+│   ├── do/
+│   ├── remotion-best-practices/
+│   ├── skill-creator/
+│   └── skill-installer/
+└── auto_vibe_environments/ # 开发环境自动部署工具
 ```
 
 ## Claude Skills
+
+### auto_vibe_environments
+开发环境自动部署和配置工具。
+
+**功能:**
+- 一键部署完整开发环境
+- 自动安装 Agent Reach（多平台内容访问）
+- 自动安装和认证 GitHub CLI
+- NPM 包自动更新系统（支持 cron 定时任务）
+- 自定义更新时间表
+- 更新日志记录和监控
+
+**使用场景:**
+- 新环境快速部署
+- 开发工具自动化安装
+- 包管理自动化
+- 多平台内容访问配置
+
+**支持的工具:**
+- Agent Reach: Twitter/X, YouTube, GitHub, Reddit, Bilibili, 微信公众号等
+- GitHub CLI: 仓库管理、PR、Issue 操作
+- NPM 自动更新: @anthropic-ai/claude-code, @openai/codex
 
 ### antigravity-proxy
 Antigravity 代理自动配置工具。
