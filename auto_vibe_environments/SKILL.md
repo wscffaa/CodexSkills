@@ -69,6 +69,22 @@ Creates scheduled tasks to keep npm packages up to date.
 
 ## Implementation Workflow
 
+### Initial User Interaction
+
+**IMPORTANT**: When this skill is first invoked, ALWAYS use AskUserQuestion to ask the user which components they want to install. This ensures the user has control over what gets installed on their system.
+
+Use AskUserQuestion with the following configuration:
+- Question: "Which development tools would you like to install?"
+- Header: "Setup Options"
+- Options (all selected by default via multiSelect):
+  1. "Agent Reach" - Multi-platform content access (Twitter, YouTube, GitHub, etc.)
+  2. "GitHub CLI" - GitHub authentication and repository management
+  3. "NPM Auto-Updates" - Scheduled package updates with cron jobs
+- Set multiSelect: true to allow multiple selections
+- Default: All options selected
+
+After receiving the user's selection, proceed with installing only the selected components.
+
 ### Full Environment Setup
 When user says "部署开发环境" or "setup my dev environment":
 
