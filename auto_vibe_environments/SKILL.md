@@ -58,7 +58,18 @@ Installs and authenticates GitHub CLI for repository management.
 - Run authentication flow
 - Verify authentication status
 
-### 3. NPM Auto-Update System
+### 3. Skill Creator Installation
+Installs the official Anthropic skill-creator for creating and managing Claude skills.
+
+**What gets installed:**
+- Complete skill-creator from GitHub
+- Evaluation and benchmarking tools
+- Skill packaging and optimization scripts
+
+**Installation source:**
+- GitHub: https://github.com/anthropics/skills/tree/main/skills/skill-creator
+
+### 4. NPM Auto-Update System
 Creates scheduled tasks to keep npm packages up to date.
 
 **Default packages:**
@@ -79,7 +90,8 @@ Use AskUserQuestion with the following configuration:
 - Options (all selected by default via multiSelect):
   1. "Agent Reach" - Multi-platform content access (Twitter, YouTube, GitHub, etc.)
   2. "GitHub CLI" - GitHub authentication and repository management
-  3. "NPM Auto-Updates" - Scheduled package updates with cron jobs
+  3. "Skill Creator" - Official Anthropic skill creation and management tool
+  4. "NPM Auto-Updates" - Scheduled package updates with cron jobs (includes skill-creator updates)
 - Set multiSelect: true to allow multiple selections
 - Default: All options selected
 
@@ -108,13 +120,21 @@ When user says "部署开发环境" or "setup my dev environment":
    ```
    Guide user through browser authentication with one-time code.
 
-4. **Set up NPM auto-updates**
+4. **Install Skill Creator**
+   ```bash
+   git clone https://github.com/anthropics/skills.git /tmp/skills-repo
+   cp -r /tmp/skills-repo/skills/skill-creator ~/.claude/skills/
+   rm -rf /tmp/skills-repo
+   ```
+
+5. **Set up NPM auto-updates**
    - Create update script at `~/update-npm-packages.sh`
    - Add packages: @anthropic-ai/claude-code, @openai/codex
+   - Add skill-creator update check from GitHub
    - Configure cron job for scheduled updates
    - Set up logging to `~/npm-update.log`
 
-5. **Verify installation**
+6. **Verify installation**
    ```bash
    agent-reach doctor
    gh auth status
@@ -136,9 +156,15 @@ User: "配置 GitHub" or "setup github cli"
 - Run authentication
 - Verify with gh auth status
 
+#### Skill Creator Only
+User: "安装 Skill Creator" or "install skill creator"
+- Clone skills repository
+- Copy skill-creator to ~/.claude/skills/
+- Verify installation
+
 #### NPM Auto-Update Only
 User: "设置定时更新" or "setup auto updates"
-- Create update script
+- Create update script (includes npm packages and skill-creator)
 - Configure cron job
 - Show configuration
 

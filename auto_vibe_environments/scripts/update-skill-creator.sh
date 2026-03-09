@@ -1,22 +1,21 @@
 #!/bin/bash
-# Auto NPM Update Script
-# Checks for outdated npm packages and updates them if newer versions are available
+# Check and update skill-creator from GitHub
 
-# Default packages
-npm outdated -g @anthropic-ai/claude-code 2>/dev/null | grep -q '@anthropic-ai/claude-code' && npm install -g @anthropic-ai/claude-code@latest --force
-npm outdated -g @openai/codex 2>/dev/null | grep -q '@openai/codex' && npm install -g @openai/codex@latest --force
-
-# Update skill-creator from GitHub
 SKILL_PATH="$HOME/.claude/skills/skill-creator"
 TEMP_REPO="/tmp/skills-repo-update"
 
+# Clone the latest version
 git clone --depth 1 https://github.com/anthropics/skills.git "$TEMP_REPO" 2>/dev/null
 
 if [ -d "$TEMP_REPO/skills/skill-creator" ]; then
+    # Check if there are differences
     if ! diff -r "$SKILL_PATH" "$TEMP_REPO/skills/skill-creator" > /dev/null 2>&1; then
+        echo "Updating skill-creator..."
         rm -rf "$SKILL_PATH"
         cp -r "$TEMP_REPO/skills/skill-creator" "$SKILL_PATH"
+        echo "skill-creator updated successfully"
     fi
 fi
 
+# Cleanup
 rm -rf "$TEMP_REPO"
