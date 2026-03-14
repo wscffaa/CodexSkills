@@ -8,6 +8,7 @@
 MySkills/
 ├── ClaudeSkills/          # Claude AI 技能集合
 │   ├── antigravity-proxy/
+│   ├── claude-gh-skills/
 │   ├── docker-nvml-monitor/
 │   ├── docx-template-reformatter/
 │   ├── midscene/
@@ -56,6 +57,21 @@ Antigravity 代理自动配置工具。
 - 无需 sudo 权限，完全自动化
 
 **使用场景:** Mac 本地 Antigravity 远程连接 Docker 容器开发，解决 AI 聊天连接失败
+
+### claude-gh-skills
+GitHub 工作流全生命周期自动化技能集，从需求到合并 PR。
+
+**包含技能:**
+- **gh-autopilot** — 端到端自动化：PRD→Issue→Project→实现→PR→合并
+- **product-requirements** — 交互式需求收集与 PRD 生成
+- **gh-create-issue** — 从 PRD/需求创建结构化 Issue
+- **gh-issue-implement** — 单个 Issue 分析→开发→创建 PR
+- **gh-pr-review** — 代码审查、修复问题、合并 PR
+- **gh-project-implement** — Project 级别批量实现所有 Issue
+- **gh-project-pr** — Project 级别批量创建 PR
+- **gh-project-sync** — 根据 PRD 同步 Project 状态
+
+**使用场景:** GitHub 项目管理自动化、批量 Issue 处理、PR 工作流
 
 ### docker-nvml-monitor
 Docker 容器 GPU 监控和自动重启工具。
