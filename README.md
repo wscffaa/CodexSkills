@@ -125,9 +125,8 @@ Zotero 文献库直接控制工具，通过 Python 脚本直接调用 Zotero Web
 ```bash
 # 复制到 Claude Code skills 目录
 cp -r ClaudeSkills/zotero_control ~/.claude/skills/
-# 配置密钥
-cp ~/.claude/skills/zotero_control/config.example.json ~/.claude/skills/zotero_control/config.json
 # 编辑 config.json 填入你的 API Key 和 User ID
+# API Key 从 https://www.zotero.org/settings/keys 获取
 ```
 
 **使用场景:** 文献综述、批量引用生成、文献库整理、学术写作辅助
