@@ -1,0 +1,72 @@
+# Mihomo TUN Mode Configuration Template
+# Working configuration for transparent proxying (solves Antigravity AI chat issues)
+
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: 0.0.0.0:9090
+unified-delay: true
+
+# DNS Configuration (fake-ip mode for optimal performance)
+dns:
+  enable: true
+  listen: :1053
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.local"
+    - time.*.com
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  fallback:
+    - https://dns.google/dns-query
+    - https://1.1.1.1/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+
+# TUN Mode (transparent proxying at network layer)
+tun:
+  enable: true
+  stack: gvisor
+  dns-hijack:
+    - any:53
+  auto-route: true
+  auto-detect-interface: true
+
+# Proxy Providers (REPLACE WITH YOUR ACTUAL SUBSCRIPTION)
+proxy-providers:
+  default:
+    type: http
+    url: "YOUR_SUBSCRIPTION_URL_HERE"
+    interval: 3600
+    path: ./proxies/default.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+
+# Proxy Groups
+proxy-groups:
+  - name: PROXY
+    type: select
+    use:
+      - default
+
+# Rules
+rules:
+  - DOMAIN-SUFFIX,google.com,PROXY
+  - DOMAIN-SUFFIX,googleapis.com,PROXY
+  - DOMAIN-SUFFIX,github.com,PROXY
+  - DOMAIN-SUFFIX,githubusercontent.com,PROXY
+  - DOMAIN-SUFFIX,anthropic.com,PROXY
+  - DOMAIN-SUFFIX,openai.com,PROXY
+  - GEOIP,CN,DIRECT
+  - MATCH,PROXY
