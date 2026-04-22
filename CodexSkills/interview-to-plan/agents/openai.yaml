@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interview to Plan"
+  short_description: "Clarify vague ideas into a reviewable PRD"
+  default_prompt: "Use $interview-to-plan to question me until the PRD is concrete enough to write. If `unified-workflow` already injected an `Artifacts:` path for the PRD, use that path; otherwise fall back to `docs/workflow/PRD.md`."

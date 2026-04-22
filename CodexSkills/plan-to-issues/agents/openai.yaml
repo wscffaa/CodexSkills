@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plan to Issues"
+  short_description: "把 PRD 拆成原子任务台账"
+  default_prompt: "请按 plan-to-issues 执行：优先使用 `unified-workflow` 注入的 `Artifacts:` 中的 PRD 与 ledger 路径；若未提供，再回退到 `docs/workflow/PRD.md` 和 `docs/workflow/ledgers/issues.csv`。按原子任务粒度生成 CSV 台账，补齐客观验收标准、Review 要求，并保留回归任务。"

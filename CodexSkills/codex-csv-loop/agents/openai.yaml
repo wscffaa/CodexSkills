@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex CSV Loop"
+  short_description: "用外部台账驱动长时、可恢复的原子任务循环"
+  default_prompt: "请按 codex-csv-loop 执行：优先使用 `unified-workflow` 注入的 `Artifacts:` 中的 PRD 与 CSV ledger 路径；若未提供，再回退到 `docs/workflow/PRD.md` 和 `docs/workflow/ledgers/issues.csv`。然后按单任务锁定、实现、验证、回卷、更新状态的循环推进。"

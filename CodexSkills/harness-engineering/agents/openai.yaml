@@ -1,0 +1,4 @@
+interface:
+  display_name: "Harness Engineering"
+  short_description: "用 harness 优先的方法做可观测、可验证的自主开发"
+  default_prompt: "请按 harness-engineering 执行：先确认边界，再补齐验证回路，设置自主预算与求助阈值，并以证据收束。"

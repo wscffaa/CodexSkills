@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "session_config": {
+    "concurrency_mode": "exclusive",
+    "max_tasks_per_session": 20,
+    "max_sessions": 50
+  },
+  "tasks": [
+    {
+      "id": "task-001",
+      "title": "Example task title",
+      "description": "What should be changed and why.",
+      "acceptance_criteria": "Objective condition for completion.",
+      "status": "pending",
+      "priority": "P1",
+      "depends_on": [],
+      "attempts": 0,
+      "max_attempts": 3,
+      "started_at_commit": null,
+      "validation": {
+        "command": "pytest -q tests/example_test.py",
+        "timeout_seconds": 300
+      },
+      "workflow": {
+        "cse": true,
+        "harness_engineering": false
+      },
+      "on_failure": {
+        "cleanup": null,
+        "rollback": false
+      },
+      "error_log": [],
+      "checkpoints": [],
+      "completed_at": null
+    }
+  ]
+}
