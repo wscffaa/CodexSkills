@@ -9,33 +9,39 @@
 
 ## 目录结构
 
-```text
+```
 MySkills/
-├── ClaudeSkills/              # Claude AI 技能集合
-│   ├── auto_vibe_environments/
-│   ├── antigravity-proxy/
-│   ├── claude-gh-skills/
+├── WORKFLOW.md            # 仓库主线主题
+├── OPTIONAL.md            # 可选技能说明
+├── Codex/                 # Codex 主题导航层
+│   ├── workflow/
+│   └── optional/
+├── Claude/                # Claude 主题导航层
+│   ├── workflow/
+│   └── optional/
+├── shared/                # 跨平台共享文档/示例/安装入口
+│   ├── docs/
+│   ├── examples/
+│   └── install/
+├── ClaudeSkills/          # Claude AI 技能集合
 │   ├── docker-nvml-monitor/
 │   ├── docx-template-reformatter/
 │   ├── midscene/
-│   ├── omo-skills/
-│   ├── skill-creator/
-│   └── zotero_control/
-├── CodexSkills/               # Codex 技能集合
-│   ├── WORKFLOW.md            # 工作流主线（推荐先读）
-│   ├── OPTIONAL.md            # 非主线 skill 清单
-│   ├── unified-workflow/
-│   ├── cybernetic-systems-engineering/
-│   ├── harness/
-│   ├── harness-engineering/
-│   ├── interview-to-plan/
-│   ├── plan-to-issues/
-│   ├── codex-csv-loop/
-│   ├── do/
-│   ├── remotion-best-practices/
-│   ├── skill-creator/
-│   └── skill-installer/
-└── auto_vibe_environments/    # 开发环境自动部署工具
+│   └── omo-skills/
+└── CodexSkills/           # Codex 技能集合
+    ├── WORKFLOW.md        # 工作流主线（推荐先读）
+    ├── OPTIONAL.md        # 非主线 skill 清单
+    ├── unified-workflow/
+    ├── cybernetic-systems-engineering/
+    ├── harness/
+    ├── harness-engineering/
+    ├── interview-to-plan/
+    ├── plan-to-issues/
+    ├── codex-csv-loop/
+    ├── do/
+    ├── remotion-best-practices/
+    ├── skill-creator/
+    └── skill-installer/
 ```
 
 ## 克隆
@@ -48,59 +54,12 @@ git clone https://github.com/wscffaa/MySkills.git
 
 如果你第一次看这个仓库，先读：
 
-1. `CodexSkills/WORKFLOW.md`
-2. `CodexSkills/README.md`
-3. 只有当主 workflow stack 不适合当前任务时，再看 `CodexSkills/OPTIONAL.md`
+1. `WORKFLOW.md`
+2. `Codex/workflow/README.md`
+3. `Claude/workflow/README.md`
+4. 只有当主 workflow stack 不适合当前任务时，再看 `OPTIONAL.md`
 
 ## Claude Skills
-
-### auto_vibe_environments
-开发环境自动部署和配置工具。
-
-**功能:**
-- 一键部署完整开发环境
-- 自动安装 Agent Reach（多平台内容访问）
-- 自动安装和认证 GitHub CLI
-- NPM 包自动更新系统（支持 cron 定时任务）
-- 自定义更新时间表
-- 更新日志记录和监控
-
-**使用场景:**
-- 新环境快速部署
-- 开发工具自动化安装
-- 包管理自动化
-- 多平台内容访问配置
-
-**支持的工具:**
-- Agent Reach: Twitter/X, YouTube, GitHub, Reddit, Bilibili, 微信公众号等
-- GitHub CLI: 仓库管理、PR、Issue 操作
-- NPM 自动更新: @anthropic-ai/claude-code, @openai/codex
-
-### antigravity-proxy
-Antigravity 代理自动配置工具。
-
-**功能:**
-- 自动安装和配置 graftcp + mihomo 代理
-- TCP 劫持 Antigravity language server
-- 自动检测版本更新（cron 每 5 分钟）
-- 无需 sudo 权限，完全自动化
-
-**使用场景:** Mac 本地 Antigravity 远程连接 Docker 容器开发，解决 AI 聊天连接失败
-
-### claude-gh-skills
-GitHub 工作流全生命周期自动化技能集，从需求到合并 PR。
-
-**包含技能:**
-- **gh-autopilot** — 端到端自动化：PRD→Issue→Project→实现→PR→合并
-- **product-requirements** — 交互式需求收集与 PRD 生成
-- **gh-create-issue** — 从 PRD/需求创建结构化 Issue
-- **gh-issue-implement** — 单个 Issue 分析→开发→创建 PR
-- **gh-pr-review** — 代码审查、修复问题、合并 PR
-- **gh-project-implement** — Project 级别批量实现所有 Issue
-- **gh-project-pr** — Project 级别批量创建 PR
-- **gh-project-sync** — 根据 PRD 同步 Project 状态
-
-**使用场景:** GitHub 项目管理自动化、批量 Issue 处理、PR 工作流
 
 ### docker-nvml-monitor
 Docker 容器 GPU 监控和自动重启工具。
@@ -142,40 +101,6 @@ AI 驱动的浏览器自动化测试工具。
 
 **使用场景:** 复杂开发任务、多步骤工作流、代理编排
 
-### skill-creator
-Anthropic 官方 Skill 创建工具。
-
-**功能:**
-- 创建和优化 Claude Code skills
-- 提供评估、打包、验证脚本
-- 包含分析、比较、评分代理
-- 支持技能基准测试和报告生成
-
-**使用场景:** 创建新 skill、优化现有 skill、skill 开发和测试
-
-### zotero_control
-Zotero 文献库直接控制工具，通过 Python 脚本直接调用 Zotero Web API v3，无需安装 MCP Server，零依赖。
-
-**功能:**
-- 搜索文献（关键词、标签、集合、类型过滤）
-- 获取单条文献详情（按 key 或 DOI）
-- 生成格式化引用（APA、Chicago、MLA、IEEE 等 10000+ 样式）
-- 提取 PDF 全文（需 Zotero Desktop 已索引）
-- 文献 CRUD（创建、更新、批量删除）
-- 集合管理（创建、列出、删除、嵌套）
-- 标签管理（添加、删除、列出）
-- API 密钥信息查询
-
-**安装:**
-```bash
-# 复制到 Claude Code skills 目录
-cp -r ClaudeSkills/zotero_control ~/.claude/skills/
-# 编辑 config.json 填入你的 API Key 和 User ID
-# API Key 从 https://www.zotero.org/settings/keys 获取
-```
-
-**使用场景:** 文献综述、批量引用生成、文献库整理、学术写作辅助
-
 ## Codex Skills
 
 ### 主线：Codex Workflow Stack
@@ -197,6 +122,11 @@ cp -r ClaudeSkills/zotero_control ~/.claude/skills/
 - PRD / CSV 驱动任务
 
 优先看这条主线，不要先跳到 optional skills。
+
+更适合从以下入口理解：
+
+- `Codex/workflow/README.md`
+- `Codex/optional/README.md`
 
 ### unified-workflow
 总控工作流路由器。
@@ -267,6 +197,46 @@ harness-first 的执行/验证回路方法论。
 - 适合无人值守或批量执行
 
 **使用场景:** 已有 CSV 台账的长时执行
+
+### do
+多代理任务编排技能。
+
+**功能:**
+- 按 /do 或 /do-csv 协议执行多代理任务编排
+- 支持 5 阶段结构化执行
+- 任务状态管理和依赖解析
+
+**使用场景:** 复杂任务分解、多代理协作、批量任务处理
+
+### remotion-best-practices
+Remotion 视频创建最佳实践。
+
+**功能:**
+- React 视频创建的领域知识
+- 字幕、音频可视化、FFmpeg 操作指南
+- 动画、转场、3D 效果最佳实践
+
+**使用场景:** Remotion 视频开发、React 动画、视频编辑
+
+### skill-creator
+Codex 技能创建指南。
+
+**功能:**
+- 创建和更新 Codex skills 的完整指南
+- 提供技能结构、最佳实践、测试方法
+- 支持技能打包和分发
+
+**使用场景:** 创建新技能、优化现有技能、技能开发
+
+### skill-installer
+Codex 技能安装器。
+
+**功能:**
+- 从 GitHub 仓库安装 Codex skills
+- 支持精选技能列表和私有仓库
+- 列出可用技能和安装管理
+
+**使用场景:** 安装技能、管理技能库、技能分发
 
 ### Optional Skills
 
