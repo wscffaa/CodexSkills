@@ -1,10 +1,14 @@
 # CodexSkills
 
-可复用的 Codex skills 工作区，重点包含 `do` 编排技能与一整套分层工作流 skills。
+可复用的 Codex skills 工作区。当前仓库默认主题已经收敛为一套 **Workflow Stack**，其它技能作为 optional 能力保留。
 
-## 包含内容
+先读：
 
-- `do/`：`$do` 显式激活技能、`/do` 与 `/do-csv` 协议、agents 配置、CSV 收尾守护脚本。
+1. `WORKFLOW.md`
+2. `OPTIONAL.md`
+
+## Workflow Stack（主线）
+
 - `unified-workflow/`：总控工作流路由器。统一选择 `superpowers`、`CSE`、`harness`、`PRD/CSV` 的组合，并统一工作流产物路径。
 - `cybernetic-systems-engineering/`：完整 CSE 方法论 skill，用于复杂工程问题的系统建模、控制合同和分层验证。
 - `harness/`：Codex-native 长时任务编排器。提供项目内 `tasks.json` / `progress.log` / checkpoint / recovery。
@@ -12,6 +16,10 @@
 - `interview-to-plan/`：把模糊需求收敛为 `PRD`。
 - `plan-to-issues/`：把 `PRD` 或结构化计划转换成 CSV 任务台账。
 - `codex-csv-loop/`：外部 CSV ledger 驱动的长时、可恢复任务循环。
+
+## Optional Skills（非主线）
+
+- `do/`：`$do` 显式激活技能、`/do` 与 `/do-csv` 协议、agents 配置、CSV 收尾守护脚本。
 - `remotion-best-practices/`：Remotion 领域规则技能。
 - `skill-creator/`、`skill-installer/`：技能创建与安装工具。
 
@@ -24,7 +32,7 @@ git clone https://github.com/wscffaa/CodexSkills.git
 cd CodexSkills/do
 bash scripts/install_to_codex.sh
 
-# 方式 2：按目录复制工作流 skill 到 ~/.codex/skills
+# 方式 2：按目录复制 workflow stack 到 ~/.codex/skills
 cd ..
 rsync -a \
   CodexSkills/unified-workflow \
@@ -116,6 +124,17 @@ $harness
 
 ### codex-csv-loop
 当已有外部 CSV ledger 时，用它驱动长时循环执行。
+
+## Optional Skills 说明
+
+### do
+适合显式 `/do` / `/do-csv` 协议场景，不作为默认 workflow 主线。
+
+### remotion-best-practices
+Remotion 视频开发专项知识。
+
+### skill-creator / skill-installer
+技能开发与分发工具链，不是业务/工程工作流主线。
 
 ## 稳定性设计（do）
 
